@@ -17,16 +17,16 @@ class ArticleList extends React.Component {
                     <p className="text-black-50 mb-1">Last updated 3 minutes ago</p>
                 </li>
                 <li className="list-group-item p-0" style={{backgroundColor: "whitesmoke"}}>
-                    <div className="row align-items-center text-center">
-                        <div className="col-md-4">
-                            <img src={love} className="img-fluid my-3" width="15%"/>
-                        </div>
-                        <div className="col-md-4">
-                            <img src={share} className="img-fluid my-3" width="10%"/>
-                        </div>
-                        <div className="col-md-4">
-                            <img src={dislike} className="img-fluid my-3" width="10%"/>
-                        </div>
+                    <div class="list-group list-group-horizontal text-center">
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-secondary border-0">
+                            <img src={love} className="img-fluid" width="15%"/>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-secondary border-0">
+                            <img src={share} className="img-fluid" width="10%"/>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-secondary border-0">
+                            <img src={dislike} className="img-fluid" width="10%"/>
+                        </a>
                     </div>
                 </li>
             </ul>
