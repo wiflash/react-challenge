@@ -30,22 +30,6 @@ class ArticleList extends React.Component {
                     </div>
                 </li>
             </ul>
-            // <div className="container border rounded">
-            //     <div className="row align-items-center">
-            //         <div className="col-md-12">
-            //             <img src={skyrim} className="img-fluid"/>
-            //             <h4>Judul</h4>
-            //             <p>Deskripsi</p>
-            //             <div className="row align-items-center">
-            //                 <div className="btn-group" role="group" aria-label="Basic example">
-            //                     <button type="button" className="btn btn-secondary">Left</button>
-            //                     <button type="button" className="btn btn-secondary">Middle</button>
-            //                     <button type="button" className="btn btn-secondary">Right</button>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //     </div>
-            // </div>
         );
     }
 }
