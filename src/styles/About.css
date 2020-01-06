@@ -1,0 +1,49 @@
+/* ABOUT ME */
+.about-me-content {
+    padding-bottom: 7%;
+}
+.about-me p {
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+.about-me h4 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 13px;
+}
+.about-me__education-list ul {
+    margin-bottom: 41px;
+}
+.about-me__education-list span {
+    font-weight: bold;
+}
+.about-me__education-list p {
+    margin-bottom: 13px;
+}
+.about-me__skill h5 {
+    font-weight: 550;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.about-me__skill td {
+    padding: 6px;
+}
+.about-me .profile {
+    position: relative;
+    text-align: right;
+    padding: 0 50px 30px 45px;
+    display: table;
+    margin-left: auto;
+}
+.about-me .profile img {
+    border-radius: 10px;
+}
+.about-me .profile:before {
+    width: 90px;
+    height: 76px;
+    background-image: url(../images/img-dot.png);
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+}

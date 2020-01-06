@@ -12,3 +12,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* TITLE */
+.about-me, .experience-title {
+  color: #19345E;
+}
+.about-me .container-fluid, .experience-title .container-fluid {
+  background: #F4F7FC;
+  margin-bottom: 44px;
+}
+.about-me h1, .experience-title h1 {
+  font-size: 40px;
+  padding: 39px 0;
+  font-weight: bold;
+}

@@ -1,0 +1,20 @@
+/* FOOTER */
+.footer-section .container-fluid {
+    background: #19345E;
+    color: white;
+    font-size: 14px;
+    font-family: semi 'SF Compact Display';
+    padding: 43px 125px;
+}
+.social-media li {
+    vertical-align: middle;
+    display: inline-block;
+    padding-right: 18px;
+}
+.social-media {
+    padding-left: 25%;
+}
+.footer-section span {
+    padding: 10% 25%;
+    border-left: 1px solid #FFFFFF;
+}
