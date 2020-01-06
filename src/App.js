@@ -4,10 +4,12 @@ import About from "./pages/About"
 import Experience from "./pages/Experience"
 import Contact from "./pages/Contact"
 
+import "./styles/App.css"
+
 function App() {
   return (
-    // <Home />
-    <About />
+    <Home />
+    // <About />
     // <Experience />
     // <Contact />
   );

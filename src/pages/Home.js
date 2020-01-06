@@ -8,7 +8,7 @@ import anne from "../images/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg"
 class Home extends React.Component {
     render() {
         return (
-            <div>
+            <div className="top-separator">
                 <Header />
                 <div className="container-fluid home-body">
                     <div className="container">

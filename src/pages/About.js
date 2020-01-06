@@ -1,7 +1,6 @@
 import React from 'react';
-import "../components/header";
 import Header from "../components/header";
-import Footer from "../components/footer"
+import Footer from "../components/footer";
 import "../styles/About.css";
 
 import anne from "../images/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg"
@@ -9,7 +8,7 @@ import anne from "../images/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg"
 class About extends React.Component {
     render() {
         return (
-            <div>
+            <div className="top-separator">
                 <Header />
                 <main className="about-me">
                     <div className="container-fluid">

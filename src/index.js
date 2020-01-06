@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import "./styles/bootstrap.min.css"
 import * as serviceWorker from './serviceWorker';
+import './index.css';
+import "./styles/bootstrap.min.css"
 
 const muli = <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet"/>
 const roboto = <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>

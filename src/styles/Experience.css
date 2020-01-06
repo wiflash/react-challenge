@@ -1,0 +1,74 @@
+/* EXPERIENCE */
+.exp-ul{
+    list-style: none;
+    margin-left: 15%;
+    margin-right: 20%;
+}
+.exp-ul li{
+    position: relative;
+    padding-left: 10%;
+    color: #19345E;
+    font-family: "Muli";
+    margin-bottom: 1%;
+    margin-top: 1%;
+    /* padding-top: -80%; */
+    
+}
+li.woka{
+    padding-top: 80%;
+}
+
+li.woka:before{
+    margin-top: 50%;
+}
+li.exp:after{
+    content:"";
+    width: 20px;
+    height:20px;
+    background:#19345E;
+    border-radius: 50%;
+    position: absolute;
+    top: 45%;
+    left:-15px;
+}
+
+li.exp:not(:last-child):before{
+    content:"";
+    width: 2px;
+    height:260%;
+    background:#CDE6E2;
+    left:-6px;
+    top:10%;
+    /* bottom:70%; */
+    position: absolute;
+}
+.shadow{
+    background-color: white;
+    width: 90%;
+    height:50%;
+    border: 1px solid #E2E2E2;
+    padding: 20px;
+    margin: 20px;
+    margin-bottom: 0%;
+    border-radius: 10px;
+    box-shadow: 1px 0px 9px;
+    position: relative;
+    top: 0;
+    transition: all .2s;  
+}
+.shadow:hover{
+    top: -10px;
+}
+.section-exp, .section-exp h3, .section-exp h4{
+    font-size: 1vw;
+}
+.section-exp h3,.section-exp h4{
+    font-weight: bold;
+}
+.section-exp h4 {
+    border-bottom:1px solid #E2E2E2;
+    width:50%;
+    padding-bottom: 1%;
+    color:#ACACAC;
+    font-size: 1em;
+}
