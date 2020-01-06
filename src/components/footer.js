@@ -10,43 +10,45 @@ import linkedin from "../images/ic-linkedin.png";
 class Footer extends React.Component {
     render() {
         return (
-            <footer class="footer-section">
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <div class="col-4">
-                            <a href="" class="footer-logo">
-                                <img src={logo_altav2} alt="logo-ALTA" width="110px"/>
-                            </a>
-                        </div>
-                        <div class="col-4">
-                            <div class="social-media">
-                                <p>Social Media</p>
-                                <ul class="social-media__list list-unstyled">
-                                    <li>
-                                        <a href="https://www.facebook.com/">
-                                            <img src={facebook} alt=""/>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.twitter.com/">
-                                            <img src={twitter} alt=""/>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/">
-                                            <img src={instagram} alt=""/>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.linkedin.com/">
-                                            <img src={linkedin} alt=""/>
-                                        </a>
-                                    </li>
-                                </ul>
+            <footer className="footer-section">
+                <div className="container-fluid">
+                    <div className="container">
+                        <div className="row align-items-center">
+                            <div className="col-4">
+                                <a href="" className="footer-logo">
+                                    <img src={logo_altav2} alt="logo-ALTA" width="110px"/>
+                                </a>
                             </div>
-                        </div>
-                        <div class="col-4">
-                            <span class="copyright">Copyright © 2019 Alterra</span>
+                            <div className="col-4">
+                                <div className="social-media">
+                                    <p>Social Media</p>
+                                    <ul className="social-media__list list-unstyled">
+                                        <li>
+                                            <a href="https://www.facebook.com/">
+                                                <img src={facebook} alt=""/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.twitter.com/">
+                                                <img src={twitter} alt=""/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.instagram.com/">
+                                                <img src={instagram} alt=""/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.linkedin.com/">
+                                                <img src={linkedin} alt=""/>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="col-4">
+                                <span className="copyright">Copyright © 2019 Alterra</span>
+                            </div>
                         </div>
                     </div>
                 </div>
