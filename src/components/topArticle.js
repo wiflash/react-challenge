@@ -1,4 +1,5 @@
 import React from 'react';
+import {ListGroup, Row, Col, Badge} from 'react-bootstrap';
 
 class TopArticle extends React.Component {
     render() {
@@ -11,33 +12,27 @@ class TopArticle extends React.Component {
         ];
         const topArticleList = judulTopArticle.map((judulTopArticle, index)=>{
             return (
-                <li class="list-group-item">
-                    <span className="badge badge-pill badge-danger">#{index+1}</span><br/>
+                <ListGroup.Item>
+                    <Badge pill variant="danger">#{index+1}</Badge><br/>
                     <span className="text-primary font-weight-normal">{judulTopArticle}</span>
-                </li>
-                // <div className="row align-items-center border-top">
-                //     <div className="col-md-12">
-                //         <span className="badge badge-pill badge-danger">#{index+1}</span><br/>
-                //         <span className="text-primary font-weight-normal">{judulTopArticle}</span>
-                //     </div>
-                // </div>
+                </ListGroup.Item>
             );
         });
 
         return (
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <div className="row align-items-center">
-                        <div className="col-md-6">
+            <ListGroup>
+                <ListGroup.Item>
+                    <Row className="align-items-center">
+                        <Col md="6">
                             <span className="text-primary font-weight-bold">BERITA TERKINI</span>
-                        </div>
-                        <div className="col-md-6 text-right">
+                        </Col>
+                        <Col className="text-right">
                             <a href="#">lihat semua</a>
-                        </div>
-                    </div>
-                </li>
+                        </Col>
+                    </Row>
+                </ListGroup.Item>
                 {topArticleList}
-            </ul>
+            </ListGroup>
         );
     }
 }
