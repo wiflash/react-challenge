@@ -1,8 +1,7 @@
 import React from 'react';
 import {ListGroup, Image} from 'react-bootstrap';import skyrim from "../images/skyrim.jpg"
-import love from "../images/love.png"
-import share from "../images/share.png"
-import dislike from "../images/dislike.png"
+import {MdShare} from "react-icons/md";
+import {AiFillLike, AiFillDislike} from "react-icons/ai";
 
 class ArticleList extends React.Component {
     render() {
@@ -22,14 +21,14 @@ class ArticleList extends React.Component {
                 </ListGroup.Item>
                 <ListGroup.Item className="p-0">
                     <ListGroup horizontal className="text-center">
-                        <ListGroup.Item href="#" action variant="light" className="border-0">
-                            <Image src={love} fluid width="15%"/>
+                        <ListGroup.Item action variant="secondary" className="border-0">
+                            <AiFillLike/>
                         </ListGroup.Item>
-                        <ListGroup.Item href="#" action variant="light" className="border-0">
-                            <Image src={share} fluid width="10%"/>
+                        <ListGroup.Item action variant="secondary" className="border-0">
+                            <MdShare/>
                         </ListGroup.Item>
-                        <ListGroup.Item href="#" action variant="light" className="border-0">
-                            <Image src={dislike} fluid width="10%"/>
+                        <ListGroup.Item action variant="secondary" className="border-0">
+                            <AiFillDislike/>
                         </ListGroup.Item>
                     </ListGroup>
                 </ListGroup.Item>

@@ -26,13 +26,13 @@ class News extends Component {
             });
     };
     render() {
-        const topHeadlines = this.state.listNews.filter((item) => {
+        const validHeadlines = this.state.listNews.filter((item) => {
             if (item.content !== null && item.image !== null) {
                 return item;
             }
             return false;
         });
-        const headlineArticles = topHeadlines.map((item, key) => {
+        const headlineArticles = validHeadlines.map((item, key) => {
             return (
                 <ArticleList
                     key={key}
