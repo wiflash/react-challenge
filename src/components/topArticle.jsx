@@ -23,13 +23,13 @@ class TopArticle extends React.Component {
         });
 
         return (
-            <ListGroup>
+            <ListGroup className="mb-4">
                 <ListGroup.Item>
                     <Row className="align-items-center">
                         <Col md="6">
                             <span className="text-primary font-weight-bold">BERITA TERKINI</span>
                         </Col>
-                        <Col className="text-right">
+                        <Col md="6" className="text-right">
                             <a href="#">lihat semua</a>
                         </Col>
                     </Row>

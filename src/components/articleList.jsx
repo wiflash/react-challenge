@@ -7,13 +7,17 @@ import dislike from "../images/dislike.png"
 class ArticleList extends React.Component {
     render() {
         return (
-            <ListGroup>
+            <ListGroup className="mb-4">
                 <ListGroup.Item className="p-0">
-                    <Image src={skyrim} fluid/>
+                    <Image src={this.props.img} fluid/>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                    <p className="h3 font-weight-bold">Tamriel</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p className="h4 font-weight-bold">
+                        <a href={this.props.url} className="text-body">
+                            {this.props.title}
+                        </a>
+                    </p>
+                    <p>{this.props.content}</p>
                     <p className="text-black-50 mb-1">Last updated 3 minutes ago</p>
                 </ListGroup.Item>
                 <ListGroup.Item className="p-0">

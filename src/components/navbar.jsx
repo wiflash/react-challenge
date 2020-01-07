@@ -12,7 +12,7 @@ class NavigationBar extends React.Component {
                 <Nav.Link href="#">{kategori}</Nav.Link>
             );
         });
-        const lainnyaDropdown = lainnya.map(lainnya=>{
+        const lainnyaDropdown = lainnya.map((lainnya)=>{
             return <NavDropdown.Item href="#">{lainnya}</NavDropdown.Item>;
         });
         const authMenu = auth.map(auth=>{
