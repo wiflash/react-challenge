@@ -5,15 +5,14 @@ import NewsBody from "./newsBody";
 const apiKey = "06efa54746344387aaed942eac41da02";
 const baseUrl = "https://newsapi.org/v2/";
 
-class RequestNewsBody extends Component {
+class ShowNewsBody extends Component {
     state = {
         listNews: [],
-        category: "general",
         isLoading: true
     };
 
     componentDidMount = () => {
-        axios.get(baseUrl + `top-headlines?country=id&category=${this.state.category}&apiKey=` + apiKey)
+        axios.get(baseUrl + `top-headlines?country=id&category=${this.props.category}&apiKey=` + apiKey)
             .then((response) => {
                 this.setState({
                     listNews: response.data.articles,
@@ -54,4 +53,4 @@ class RequestNewsBody extends Component {
 }
 
 
-export default RequestNewsBody;
+export default ShowNewsBody;

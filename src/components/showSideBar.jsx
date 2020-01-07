@@ -1,16 +1,16 @@
-import React, {Component} from "react";
+import React from "react";
 import {ListGroup, Row, Col} from 'react-bootstrap';
 import axios from "axios";
-import RequestNewsBody from "../components/requestNews";
+import ShowNewsBody from "./showNews";
 import SideBarBody from "./sideBarBody";
 
 
 const apiKey = "06efa54746344387aaed942eac41da02";
 const baseUrl = "https://newsapi.org/v2/";
 
-class RequestSideBarBody extends RequestNewsBody {
+class ShowSideBarBody extends ShowNewsBody {
     componentDidMount = () => {
-        axios.get(baseUrl + `top-headlines?country=id&category=${this.state.category}&apiKey=` + apiKey + "&page=1&pageSize=5")
+        axios.get(baseUrl + `top-headlines?country=id&category=general&apiKey=` + apiKey + "&page=1&pageSize=5")
             .then((response) => {
                 this.setState({
                     listNews: response.data.articles,
@@ -62,7 +62,7 @@ class RequestSideBarBody extends RequestNewsBody {
                             <span className="text-primary font-weight-bold">BERITA TERKINI</span>
                         </Col>
                         <Col md="6" className="text-right">
-                            <a href="#">lihat semua</a>
+                            <a href="/">lihat semua</a>
                         </Col>
                     </Row>
                 </ListGroup.Item>
@@ -73,4 +73,4 @@ class RequestSideBarBody extends RequestNewsBody {
 }
 
 
-export default RequestSideBarBody;
+export default ShowSideBarBody;

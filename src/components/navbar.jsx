@@ -6,22 +6,28 @@ import logo from '../logo.svg';
 
 class NavigationBar extends React.Component {
     render() {
-        const kategori = ["Umum", "Olahraga", "Hiburan", "Bisnis"];
-        const kategoriMenu = kategori.map(kategori=>{
+        const kategori = ["Olahraga", "Hiburan", "Bisnis"];
+        const kategoriMenu = kategori.map(kategori => {
             return (
-                <Nav.Link>{kategori}</Nav.Link>
+                <Nav.Link onClick={() => this.props.handleRouter(kategori)}>
+                    {kategori}
+                </Nav.Link>
             );
         });
         
         const lainnya = ["Sains", "Teknologi", "Kesehatan"];
-        const lainnyaDropdown = lainnya.map((lainnya)=>{
-            return <NavDropdown.Item>{lainnya}</NavDropdown.Item>;
+        const lainnyaDropdown = lainnya.map((kategoriLainnya) => {
+            return (
+                <NavDropdown.Item onClick={() => this.props.handleRouter(kategoriLainnya)}>
+                    {kategoriLainnya}
+                </NavDropdown.Item>
+            );
         });
         
         return (
             <Navbar expand="lg" bg="light">
                 <Nav className="mr-auto">
-                    <Navbar.Brand href="#">
+                    <Navbar.Brand href="/">
                         <img src={logo} width="50" height="50" className="d-inline-block align-center" alt="logo"/>
                         <span>KabarKabar</span>
                     </Navbar.Brand>
@@ -38,7 +44,7 @@ class NavigationBar extends React.Component {
                         <InputGroup>
                             <FormControl type="search" placeholder="Search"/>
                             <InputGroup.Append>
-                                <Button variant="outline-success" className="my-2 my-sm-0" type="submit"><FiSearch/></Button>
+                                <Button variant="outline-info" className="my-2 my-sm-0" type="submit"><FiSearch/></Button>
                             </InputGroup.Append>
                         </InputGroup>
                     </Form>
