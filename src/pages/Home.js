@@ -1,6 +1,6 @@
 import React from "react";
 import {Container, Row, Col} from 'react-bootstrap';
-import Navbar from "../components/navbar";
+import NavigationBar from "../components/navbar";
 import TopArticle from "../components/topArticle";
 import ArticleList from "../components/articleList";
 
@@ -8,7 +8,7 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <Navbar />
+                <NavigationBar />
                 <Container fluid={true}>
                     <Container className="mt-5">
                         <Row>

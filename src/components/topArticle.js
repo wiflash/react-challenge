@@ -2,6 +2,9 @@ import React from 'react';
 import {ListGroup, Row, Col, Badge} from 'react-bootstrap';
 
 class TopArticle extends React.Component {
+    functionAlert=() =>{
+        alert("halooo")
+    }
     render() {
         const judulTopArticle = [
             "Gabung Alpha Tech Academy Sekarang!",
@@ -14,7 +17,7 @@ class TopArticle extends React.Component {
             return (
                 <ListGroup.Item>
                     <Badge pill variant="danger">#{index+1}</Badge><br/>
-                    <span className="text-primary font-weight-normal">{judulTopArticle}</span>
+                    <a href="#">{judulTopArticle}</a>
                 </ListGroup.Item>
             );
         });

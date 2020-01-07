@@ -1,58 +1,51 @@
 import React from 'react';
+import {Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap';
 import logo from '../logo.svg';
 
-class Navbar extends React.Component {
+class NavigationBar extends React.Component {
     render() {
         const kategori = ["Sepak Bola", "Ekonomi", "Politik", "Hiburan"];
         const lainnya = ["Game", "Bisnis", "Kehutanan"];
         const auth = ["Masuk", "Daftar"];
         const kategoriMenu = kategori.map(kategori=>{
             return (
-                <li class="nav-item">
-                    <a class="nav-link" href="#">{kategori}</a>
-                </li>
+                <Nav.Link href="#">{kategori}</Nav.Link>
             );
         });
         const lainnyaDropdown = lainnya.map(lainnya=>{
-            return <a class="dropdown-item" href="#">{lainnya}</a>;
+            return <NavDropdown.Item href="#">{lainnya}</NavDropdown.Item>;
         });
         const authMenu = auth.map(auth=>{
             return (
-                <li class="nav-item">
-                    <a class="nav-link" href="#">{auth}</a>
-                </li>
+                <Nav.Link href="#">{auth}</Nav.Link>
             );
         });
 
         return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="navbar-nav mr-auto">
-                    <a className="navbar-brand" href="#">
+            <Navbar expand="lg" bg="light">
+                <Nav className="mr-auto">
+                    <Navbar.Brand href="#">
                         <img src={logo} width="50" height="50" className="d-inline-block align-center" alt="logo"/>
                         <span>KabarKabar</span>
-                    </a>
-                </div>
-                <ul class="navbar-nav mr-auto ml-auto">
+                    </Navbar.Brand>
+                </Nav>
+                <Nav className="mr-auto ml-auto">
                     {kategoriMenu}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Lainnya
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">{lainnyaDropdown}</div>
-                    </li>
-                </ul>
-                <form class="form-inline mr-auto ml-auto">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-                {/* </div> */}
-                <div className="navbar-nav mr-auto ml-auto">
+                    <NavDropdown title="Lainnya">
+                        {lainnyaDropdown}
+                    </NavDropdown>
+                </Nav>
+                <Form inline className="mr-auto ml-auto">
+                    <FormControl className="mr-sm-2" type="search" placeholder="Search"/>
+                    <Button variant="outline-success" className="my-2 my-sm-0" type="submit">Search</Button>
+                </Form>
+                <Nav className="mr-auto ml-auto">
                     {authMenu}
-                </div>
-            </nav>
+                </Nav>
+            </Navbar>
         );
     }
 }
 
 
-export default Navbar;
+export default NavigationBar;
