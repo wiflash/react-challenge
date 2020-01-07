@@ -12,7 +12,6 @@ class Home extends React.Component {
                 <Container fluid={true}>
                     <Container className="mt-5">
                         <Row>
-                            {/* <Col md="4" className="ml-auto"><SideBarBody /></Col> */}
                             <Col md="4" className="ml-auto"><RequestSideBarBody /></Col>
                             <Col md="7" className="mr-auto"><RequestNewsBody /></Col>
                         </Row>
