@@ -1,27 +1,23 @@
 import React from 'react';
 import {Navbar, Nav, NavDropdown, Form, FormControl, InputGroup, Button} from 'react-bootstrap';
 import {FiSearch} from "react-icons/fi";
+import Auth from "./auth"
 import logo from '../logo.svg';
 
 class NavigationBar extends React.Component {
     render() {
         const kategori = ["Umum", "Olahraga", "Hiburan", "Bisnis"];
-        const lainnya = ["Sains", "Teknologi", "Kesehatan"];
-        const auth = ["Masuk", "Daftar"];
         const kategoriMenu = kategori.map(kategori=>{
             return (
                 <Nav.Link>{kategori}</Nav.Link>
             );
         });
+        
+        const lainnya = ["Sains", "Teknologi", "Kesehatan"];
         const lainnyaDropdown = lainnya.map((lainnya)=>{
             return <NavDropdown.Item>{lainnya}</NavDropdown.Item>;
         });
-        const authMenu = auth.map(auth=>{
-            return (
-                <Nav.Link>{auth}</Nav.Link>
-            );
-        });
-
+        
         return (
             <Navbar expand="lg" bg="light">
                 <Nav className="mr-auto">
@@ -46,9 +42,7 @@ class NavigationBar extends React.Component {
                             </InputGroup.Append>
                         </InputGroup>
                     </Form>
-                    <Nav className="mr-auto ml-auto">
-                        {authMenu}
-                    </Nav>
+                    <Auth />
                 </Navbar.Collapse>
             </Navbar>
         );

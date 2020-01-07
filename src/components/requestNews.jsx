@@ -1,16 +1,17 @@
 import React, {Component} from "react";
 import axios from "axios";
-import News from "./renderNews";
+import NewsBody from "./newsBody";
 
-const apiKey = "44687f6f58184f6385947cb55a41ac62";
+const apiKey = "06efa54746344387aaed942eac41da02";
 const baseUrl = "https://newsapi.org/v2/";
 
-class TopNews extends Component {
+class RequestNewsBody extends Component {
     state = {
         listNews: [],
-        category: "sport",
+        category: "general",
         isLoading: true
     };
+
     componentDidMount = () => {
         axios.get(baseUrl + `top-headlines?country=id&category=${this.state.category}&apiKey=` + apiKey)
             .then((response) => {
@@ -25,6 +26,7 @@ class TopNews extends Component {
                 })
             });
     };
+    
     render() {
         const validHeadlines = this.state.listNews.filter((item) => {
             if (item.content !== null && item.image !== null) {
@@ -34,7 +36,7 @@ class TopNews extends Component {
         });
         const headlineNews = validHeadlines.map((item, key) => {
             return (
-                <News
+                <NewsBody
                     key={key}
                     title={item.title}
                     img={item.urlToImage}
@@ -52,4 +54,4 @@ class TopNews extends Component {
 }
 
 
-export default TopNews;
+export default RequestNewsBody;

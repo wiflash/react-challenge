@@ -1,9 +1,9 @@
 import React from 'react';
-import {ListGroup, Image} from 'react-bootstrap';import skyrim from "../images/skyrim.jpg"
+import {ListGroup, Image} from 'react-bootstrap';
 import {MdShare} from "react-icons/md";
 import {AiFillLike, AiFillDislike} from "react-icons/ai";
 
-class News extends React.Component {
+class NewsBody extends React.Component {
     render() {
         return (
             <ListGroup className="mb-4">
@@ -38,4 +38,4 @@ class News extends React.Component {
 }
 
 
-export default News;
+export default NewsBody;
