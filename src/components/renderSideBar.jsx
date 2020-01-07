@@ -1,23 +1,23 @@
 import React from 'react';
 import {ListGroup, Row, Col, Badge} from 'react-bootstrap';
 
-class TopArticle extends React.Component {
+class SideBar extends React.Component {
     functionAlert=() =>{
         alert("halooo")
     }
     render() {
-        const judulTopArticle = [
+        const judulNews = [
             "Gabung Alpha Tech Academy Sekarang!",
             "Ada apa antara Kobar dan Hasan?",
             "Mengenal Arafat sang Master Python",
             "Belajar ReactJs itu seru. Kamu setuju?",
             "Sudahkah kamu sehat mendal?"
         ];
-        const topArticleList = judulTopArticle.map((judulTopArticle, index)=>{
+        const topNewsBadges = judulNews.map((judulNews, index)=>{
             return (
                 <ListGroup.Item>
                     <Badge pill variant="danger">#{index+1}</Badge><br/>
-                    <a href="#">{judulTopArticle}</a>
+                    <a href="#">{judulNews}</a>
                 </ListGroup.Item>
             );
         });
@@ -34,11 +34,11 @@ class TopArticle extends React.Component {
                         </Col>
                     </Row>
                 </ListGroup.Item>
-                {topArticleList}
+                {topNewsBadges}
             </ListGroup>
         );
     }
 }
 
 
-export default TopArticle;
+export default SideBar;

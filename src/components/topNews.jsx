@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 import axios from "axios";
-import ArticleList from "../components/articleList";
+import News from "./renderNews";
 
 const apiKey = "44687f6f58184f6385947cb55a41ac62";
 const baseUrl = "https://newsapi.org/v2/";
 
-class News extends Component {
+class TopNews extends Component {
     state = {
         listNews: [],
         category: "sport",
@@ -32,9 +32,9 @@ class News extends Component {
             }
             return false;
         });
-        const headlineArticles = validHeadlines.map((item, key) => {
+        const headlineNews = validHeadlines.map((item, key) => {
             return (
-                <ArticleList
+                <News
                     key={key}
                     title={item.title}
                     img={item.urlToImage}
@@ -44,12 +44,12 @@ class News extends Component {
             );
         });
         return (
-            <div className="headlineArticles">
-                {this.state.isLoading ? <div className="h5 font-weight-bold">Loading...</div> : headlineArticles}
+            <div className="headlineNews">
+                {this.state.isLoading ? <div className="h5 font-weight-bold">Loading...</div> : headlineNews}
             </div>
         );
     }
 }
 
 
-export default News;
+export default TopNews;

@@ -3,12 +3,12 @@ import {ListGroup, Image} from 'react-bootstrap';import skyrim from "../images/s
 import {MdShare} from "react-icons/md";
 import {AiFillLike, AiFillDislike} from "react-icons/ai";
 
-class ArticleList extends React.Component {
+class News extends React.Component {
     render() {
         return (
             <ListGroup className="mb-4">
                 <ListGroup.Item className="p-0">
-                    <Image src={this.props.img} fluid/>
+                    <Image src={this.props.img} fluid className="rounded-top mx-auto d-block"/>
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <p className="h4 font-weight-bold">
@@ -38,4 +38,4 @@ class ArticleList extends React.Component {
 }
 
 
-export default ArticleList;
+export default News;
