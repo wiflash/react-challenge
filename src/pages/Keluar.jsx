@@ -1,7 +1,7 @@
 import React from "react";
 
 
-class Daftar extends React.Component {
+class Keluar extends React.Component {
     render() {
         return (
             <div>
@@ -13,4 +13,4 @@ class Daftar extends React.Component {
     }
 }
 
-export default Daftar;
+export default Keluar;

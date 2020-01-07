@@ -4,7 +4,7 @@ import {Nav} from 'react-bootstrap';
 
 class Auth extends React.Component {
     render() {
-        const auth = ["Masuk", "Daftar"];
+        const auth = ["Profil" ,"Masuk", "Keluar"];
         const authMenu = auth.map(auth => {
             return <Nav.Link href={auth}>{auth}</Nav.Link>;
         });

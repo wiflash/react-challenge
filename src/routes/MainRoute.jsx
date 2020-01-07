@@ -2,8 +2,9 @@ import React from "react";
 import {Route, Switch, BrowserRouter} from "react-router-dom";
 
 import Home from "../pages/Home";
+import Profil from "../pages/Profil";
 import Masuk from "../pages/Masuk";
-import Daftar from "../pages/Daftar";
+import Keluar from "../pages/Keluar";
 
 
 const MainRoute = () => {
@@ -11,8 +12,9 @@ const MainRoute = () => {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/profil" component={Profil} />
                 <Route exact path="/masuk" component={Masuk} />
-                <Route exact path="/daftar" component={Daftar} />
+                <Route exact path="/keluar" component={Keluar} />
                 <Route path="/:kategori" component={Home} />
             </Switch>
         </BrowserRouter>
