@@ -6,7 +6,7 @@ class Auth extends React.Component {
     render() {
         const auth = ["Masuk", "Daftar"];
         const authMenu = auth.map(auth => {
-            return <Nav.Link>{auth}</Nav.Link>;
+            return <Nav.Link href={auth}>{auth}</Nav.Link>;
         });
 
         return (
