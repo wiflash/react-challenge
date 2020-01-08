@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, Nav, NavDropdown, Form, FormControl} from 'react-bootstrap';
+import {Navbar, Nav, NavDropdown, FormControl} from 'react-bootstrap';
 import logo from '../logo.svg';
 
 class NavigationBar extends React.Component {
