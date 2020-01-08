@@ -5,10 +5,20 @@ import {actions} from "../store";
 import {Redirect} from "react-router-dom";
 import {Container, Form, Row, Col, ListGroup} from 'react-bootstrap';
 import NavigationBar from "../components/navbar";
-import Masuk from "./Masuk";
 
 
-class Profile extends Masuk {
+class Profile extends React.Component {
+    handleRouterKategori = async namaKategori => {
+        let kategori;
+        namaKategori === "Olahraga" ? kategori="sports"
+            : namaKategori === "Hiburan" ? kategori="entertainment"
+            : namaKategori === "Bisnis" ? kategori="business"
+            : namaKategori === "Sains" ? kategori="science"
+            : namaKategori === "Teknologi" ? kategori="technology"
+            : kategori="health"
+        await this.props.history.push("/" + kategori);
+    };
+
     render() {
         const email = localStorage.getItem("email");
         const fullname = localStorage.getItem("fullname");

@@ -13,9 +13,9 @@ const baseUrl = "https://newsapi.org/v2/";
 
 class Home extends React.Component {
     requestNews = async () => {
-        store.setState({loadingKah: true});
         let kategori = this.props.match.params.kategori;
         if (kategori === undefined) {kategori="general"}
+        store.setState({loadingKah: true});
         axios.get(baseUrl + `top-headlines?country=id&category=${kategori}&q=${this.props.keyword}&apiKey=` + apiKey)
             .then((response) => {
                 store.setState({

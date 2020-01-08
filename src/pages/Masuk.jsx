@@ -24,7 +24,6 @@ class Masuk extends React.Component {
             username: this.props.username,
             password: this.props.password
         }
-        console.log("data:",data)
         axios.post("https://login-uhuy.free.beeceptor.com/login", data)
         .then((response) => {
             if (response.data.hasOwnProperty("apiKey")) {
@@ -51,12 +50,12 @@ class Masuk extends React.Component {
                                 <Form.Group>
                                     <Form.Label>Username</Form.Label>
                                     <Form.Control type="text" placeholder="Masukan username"
-                                        name="username" onChange={event => this.props.handleSetGlobal(event)}/>
+                                        name="username" onChange={(event) => this.props.handleSetGlobal(event)}/>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" placeholder="Masukan password"
-                                        name="password" onChange={event => this.props.handleSetGlobal(event)}/>
+                                        name="password" onChange={(event) => this.props.handleSetGlobal(event)}/>
                                 </Form.Group>
                                 <Button variant="outline-info" type="submit" onClick={() => this.login()}>
                                     Masuk

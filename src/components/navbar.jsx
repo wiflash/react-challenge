@@ -53,8 +53,8 @@ class NavigationBar extends React.Component {
                     <Nav className="mx-auto">
                         <FormControl disabled={this.props.disableSearch}
                             placeholder="Ketik untuk mencari"
-                            onChange={keyword => this.props.handleSearch(keyword)}
-                            name="keyword" type="search" />
+                            name="keyword" type="search"
+                            onChange={keyword => this.props.handleSearch(keyword)}/>
                     </Nav>
                     <Nav className="mx-auto">
                         {authMenu}
