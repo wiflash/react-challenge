@@ -1,4 +1,7 @@
 import React from "react";
+import {withRouter} from "react-router-dom";
+import {connect} from "unistore/react";
+import {actions} from "../store";
 import axios from "axios";
 import {Container, Row, Form, Button} from 'react-bootstrap';
 import NavigationBar from "../components/navbar";
@@ -6,21 +9,14 @@ import NavigationBar from "../components/navbar";
 const url = "https://login-uhuy.free.beeceptor.com/login";
 
 class Masuk extends React.Component {
-    state = {username: "", password: ""};
-
-    updateData = event => {
-        this.setState({ [event.target.name]: event.target.value });
-    };
-    
     login = () => {
         const data = {
-            username: this.state.username,
-            password: this.state.password
+            username: this.props.username,
+            password: this.props.password
         }
-        console.log("data", data)
+        console.log("data:",data)
         axios.post(url, data)
         .then((response) => {
-            console.log("response mock:",response.data)
             if (response.data.hasOwnProperty("apiKey")) {
                 localStorage.setItem("apiKey", response.data.apiKey);
                 localStorage.setItem("email", response.data.email);
@@ -43,12 +39,12 @@ class Masuk extends React.Component {
                                 <Form.Group>
                                     <Form.Label>Username</Form.Label>
                                     <Form.Control type="text" placeholder="Masukan username"
-                                        name="username" onChange={event => this.updateData(event)}/>
+                                        name="username" onChange={event => this.props.handleSetGlobal(event)}/>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" placeholder="Masukan password"
-                                        name="password" onChange={event => this.updateData(event)}/>
+                                        name="password" onChange={event => this.props.handleSetGlobal(event)}/>
                                 </Form.Group>
                                 <Button variant="outline-info" type="submit" onClick={() => this.login()}>
                                     Masuk
@@ -63,4 +59,4 @@ class Masuk extends React.Component {
 }
 
 
-export default Masuk;
+export default connect("username, password", actions)(withRouter(Masuk));
