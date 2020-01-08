@@ -8,7 +8,7 @@ class NewsBody extends React.Component {
         return (
             <ListGroup className="mb-4">
                 <ListGroup.Item className="p-0">
-                    <Image src={this.props.img} fluid className="rounded-top mx-auto d-block"/>
+                    <Image alt="image news" src={this.props.img} fluid className="rounded-top mx-auto d-block"/>
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <p className="h4 font-weight-bold">
