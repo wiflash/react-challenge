@@ -3,19 +3,19 @@ import {Navbar, Nav, NavDropdown, FormControl} from 'react-bootstrap';
 import logo from '../logo.svg';
 
 class NavigationBar extends React.Component {
-    removeLocalLogin = () => {
-        localStorage.removeItem("loginKah");
-        this.props.history.push("/");
-        console.log("CLICKED KELUAR")
-    };
+    handleAuth = (menu) => {
+        if (menu === "Keluar") {
+            localStorage.removeItem("loginKah");
+            this.props.history.push("/");
+        } else {
+            this.props.history.push(`/${menu}`)
+        }
+    }
 
     render() {
-        const auth = ["Profil" ,"Masuk", "Keluar"];
+        const auth = ["Profile" ,"Masuk", "Keluar"];
         const authMenu = auth.map(auth => {
-            if (auth === "Keluar") {
-                return <Nav.Link onClick={this.removeLocalLogin}>{auth}</Nav.Link>;
-            }
-            return <Nav.Link href={auth}>{auth}</Nav.Link>;
+            return <Nav.Link onClick={() => this.handleAuth(auth)}>{auth}</Nav.Link>;
         });
 
         const kategori = ["Olahraga", "Hiburan", "Bisnis"];

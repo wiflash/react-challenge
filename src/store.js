@@ -9,7 +9,7 @@ const initialState = {
     loginKah: false,
     listNews: [],
     keyword: "",
-    isLoading: true
+    loadingKah: true
 };
 
 export const store = createStore(initialState);

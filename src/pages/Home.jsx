@@ -1,4 +1,7 @@
 import React from "react";
+import {withRouter} from "react-router-dom";
+import {connect} from "unistore/react";
+import {actions, store} from "../store";
 import axios from "axios";
 import {Container, Row, Col} from 'react-bootstrap';
 import NewsBody from "../components/newsBody";
@@ -9,29 +12,19 @@ const apiKey = "06efa54746344387aaed942eac41da02";
 const baseUrl = "https://newsapi.org/v2/";
 
 class Home extends React.Component {
-    state = {
-        listNews: [],
-        keyword: "",
-        isLoading: true
-    };
-
     requestNews = async () => {
-        this.setState({
-            isLoading: true
-        })
+        store.setState({loadingKah: true});
         let kategori = this.props.match.params.kategori;
         if (kategori === undefined) {kategori="general"}
-        axios.get(baseUrl + `top-headlines?country=id&category=${kategori}&q=${this.state.keyword}&apiKey=` + apiKey)
+        axios.get(baseUrl + `top-headlines?country=id&category=${kategori}&q=${this.props.keyword}&apiKey=` + apiKey)
             .then((response) => {
-                this.setState({
+                store.setState({
                     listNews: response.data.articles,
-                    isLoading: false
+                    loadingKah: false
                 })
             })
             .catch((error) => {
-                this.setState({
-                    isLoading: true
-                })
+                store.setState({loadingKah: true})
             });
     }
 
@@ -52,12 +45,12 @@ class Home extends React.Component {
     };
 
     handleRouterSearch = keywordObject => {
-        this.setState({ [keywordObject.target.name]: keywordObject.target.value });
+        store.setState({ [keywordObject.target.name]: keywordObject.target.value });
         this.requestNews();
     };
 
     render() {
-        const validHeadlines = this.state.listNews.filter((item) => {
+        const validHeadlines = this.props.listNews.filter((item) => {
             if (item.content !== null && item.image !== null) {
                 return item;
             }
@@ -75,6 +68,7 @@ class Home extends React.Component {
                 />
             );
         });
+
         return (
             <div>
                 <NavigationBar {...this.props} handleRouter={event => this.handleRouterKategori(event)}
@@ -84,7 +78,7 @@ class Home extends React.Component {
                         <Row>
                             <Col md="4" className="ml-auto"><ShowSideBarBody /></Col>
                             <Col md="7" className="mr-auto">
-                                {this.state.isLoading ? <div className="h5 font-weight-bold">Loading...</div> : headlineNews}
+                                {this.props.loadingKah ? <div className="h5 font-weight-bold">Loading...</div> : headlineNews}
                             </Col>
                         </Row>
                     </Container>
@@ -94,4 +88,6 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+
+// export default Home;
+export default connect("keyword, listNews, loadingKah", actions)(withRouter(Home));
