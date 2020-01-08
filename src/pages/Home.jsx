@@ -19,9 +19,9 @@ class Home extends React.Component {
         this.setState({
             isLoading: true
         })
-        let kategori = await this.props.match.params.kategori;
+        let kategori = this.props.match.params.kategori;
         if (kategori === undefined) {kategori="general"}
-        await axios.get(baseUrl + `top-headlines?country=id&category=${kategori}&q=${this.state.keyword}&apiKey=` + apiKey)
+        axios.get(baseUrl + `top-headlines?country=id&category=${kategori}&q=${this.state.keyword}&apiKey=` + apiKey)
             .then((response) => {
                 this.setState({
                     listNews: response.data.articles,
@@ -51,7 +51,7 @@ class Home extends React.Component {
         this.requestNews();
     };
 
-    handleRouterSearch = async keywordObject => {
+    handleRouterSearch = keywordObject => {
         this.setState({
             keyword: keywordObject.target.value
         })
@@ -80,7 +80,8 @@ class Home extends React.Component {
         });
         return (
             <div>
-                <NavigationBar {...this.props} handleRouter={e => this.handleRouterKategori(e)} handleSearch={e => this.handleRouterSearch(e)}/>
+                <NavigationBar {...this.props} handleRouter={event => this.handleRouterKategori(event)}
+                    handleSearch={event => this.handleRouterSearch(event)}/>
                 <Container fluid={true}>
                     <Container className="mt-5">
                         <Row>
