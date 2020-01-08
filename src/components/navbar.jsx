@@ -1,6 +1,5 @@
 import React from 'react';
-import {Navbar, Nav, NavDropdown, Form, FormControl, InputGroup, Button} from 'react-bootstrap';
-import {FiSearch} from "react-icons/fi";
+import {Navbar, Nav, NavDropdown, Form, FormControl} from 'react-bootstrap';
 import logo from '../logo.svg';
 
 class NavigationBar extends React.Component {
@@ -47,21 +46,16 @@ class NavigationBar extends React.Component {
                 </Nav>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse>
-                    <Nav className="mr-auto ml-auto">
+                    <Nav className="mx-auto">
                         {kategoriMenu}
                         <NavDropdown title="Lainnya">
                             {lainnyaDropdown}
                         </NavDropdown>
                     </Nav>
-                    <Form inline className="mr-auto ml-auto">
-                        <InputGroup>
-                            <FormControl name="keyword" type="search" placeholder="Search" onChange={keyword => this.props.handleSearch(keyword)}/>
-                            <InputGroup.Append>
-                                <Button variant="outline-info" className="my-2 my-sm-0" type="submit"><FiSearch/></Button>
-                            </InputGroup.Append>
-                        </InputGroup>
-                    </Form>
-                    <Nav className="mr-auto ml-auto">
+                    <Nav className="mx-auto">
+                        <FormControl name="keyword" type="search" placeholder="Ketik untuk mencari" onChange={keyword => this.props.handleSearch(keyword)}/>
+                    </Nav>
+                    <Nav className="mx-auto">
                         {authMenu}
                     </Nav>
                 </Navbar.Collapse>
