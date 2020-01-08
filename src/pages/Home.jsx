@@ -11,6 +11,7 @@ const baseUrl = "https://newsapi.org/v2/";
 class Home extends React.Component {
     state = {
         listNews: [],
+        keyword: "",
         isLoading: true
     };
 
@@ -20,7 +21,7 @@ class Home extends React.Component {
         })
         let kategori = await this.props.match.params.kategori;
         if (kategori === undefined) {kategori="general"}
-        await axios.get(baseUrl + `top-headlines?country=id&category=${kategori}&apiKey=` + apiKey)
+        await axios.get(baseUrl + `top-headlines?country=id&category=${kategori}&q=${this.state.keyword}&apiKey=` + apiKey)
             .then((response) => {
                 this.setState({
                     listNews: response.data.articles,
@@ -31,7 +32,6 @@ class Home extends React.Component {
                 this.setState({
                     isLoading: true
                 })
-                console.log("UYEEEE")
             });
     }
 
@@ -51,6 +51,14 @@ class Home extends React.Component {
         this.requestNews();
     };
 
+    handleRouterSearch = async keywordObject => {
+        this.setState({
+            keyword: keywordObject.target.value
+        })
+        console.log(this.state.keyword)
+        this.requestNews();
+    };
+
     render() {
         const validHeadlines = this.state.listNews.filter((item) => {
             if (item.content !== null && item.image !== null) {
@@ -58,7 +66,7 @@ class Home extends React.Component {
             }
             return false;
         });
-        console.log(this.state.listNews)
+        
         const headlineNews = validHeadlines.map((item, key) => {
             return (
                 <NewsBody
@@ -72,7 +80,7 @@ class Home extends React.Component {
         });
         return (
             <div>
-                <NavigationBar handleRouter={e => this.handleRouterKategori(e)}/>
+                <NavigationBar {...this.props} handleRouter={e => this.handleRouterKategori(e)} handleSearch={e => this.handleRouterSearch(e)}/>
                 <Container fluid={true}>
                     <Container className="mt-5">
                         <Row>

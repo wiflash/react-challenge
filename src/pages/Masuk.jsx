@@ -11,16 +11,16 @@ class Masuk extends React.Component {
     updateData = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
-
+    
     login = () => {
         const data = {
             username: this.state.username,
             password: this.state.password
         }
         axios.post(url, data)
-            .then((response) => {
-                console.log(response.data.hasOwnProperty("apiKey"))
-                if (response.data.hasOwnProperty("apiKey")) {
+        .then((response) => {
+            console.log(response.data.hasOwnProperty("apiKey"))
+            if (response.data.hasOwnProperty("apiKey")) {
                     localStorage.setItem("apiKey", response.data.apiKey);
                     localStorage.setItem("email", response.data.email);
                     localStorage.setItem("fullname", response.data.fullname);
