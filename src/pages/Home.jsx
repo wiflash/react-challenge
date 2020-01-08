@@ -52,10 +52,7 @@ class Home extends React.Component {
     };
 
     handleRouterSearch = keywordObject => {
-        this.setState({
-            keyword: keywordObject.target.value
-        })
-        console.log(this.state.keyword)
+        this.setState({ [keywordObject.target.name]: keywordObject.target.value });
         this.requestNews();
     };
 

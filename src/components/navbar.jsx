@@ -7,7 +7,7 @@ class NavigationBar extends React.Component {
     removeLocalLogin = () => {
         localStorage.removeItem("loginKah");
         this.props.history.push("/");
-        console.log("MASUK")
+        console.log("CLICKED KELUAR")
     };
 
     render() {
@@ -55,7 +55,7 @@ class NavigationBar extends React.Component {
                     </Nav>
                     <Form inline className="mr-auto ml-auto">
                         <InputGroup>
-                            <FormControl type="search" placeholder="Search" onChange={keyword => this.props.handleSearch(keyword)}/>
+                            <FormControl name="keyword" type="search" placeholder="Search" onChange={keyword => this.props.handleSearch(keyword)}/>
                             <InputGroup.Append>
                                 <Button variant="outline-info" className="my-2 my-sm-0" type="submit"><FiSearch/></Button>
                             </InputGroup.Append>

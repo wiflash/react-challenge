@@ -1,14 +1,18 @@
 import React from "react";
 import {ListGroup, Row, Col} from 'react-bootstrap';
 import axios from "axios";
-import ShowNewsBody from "./showNews";
 import SideBarBody from "./sideBarBody";
 
 
 const apiKey = "06efa54746344387aaed942eac41da02";
 const baseUrl = "https://newsapi.org/v2/";
 
-class ShowSideBarBody extends ShowNewsBody {
+class ShowSideBarBody extends React.Component {
+    state = {
+        listNews: [],
+        isLoading: true
+    };
+
     componentDidMount = () => {
         axios.get(baseUrl + `top-headlines?country=id&category=general&apiKey=` + apiKey + "&page=1&pageSize=5")
             .then((response) => {

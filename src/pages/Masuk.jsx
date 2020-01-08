@@ -17,9 +17,11 @@ class Masuk extends React.Component {
             username: this.state.username,
             password: this.state.password
         }
+        console.log("data", data)
         axios.post(url, data)
         .then((response) => {
-            console.log(response.data.hasOwnProperty("apiKey"))
+            console.log("response mock:",response.data)
+            console.log("ada apiKey:",response.data.hasOwnProperty("apiKey"))
             if (response.data.hasOwnProperty("apiKey")) {
                     localStorage.setItem("apiKey", response.data.apiKey);
                     localStorage.setItem("email", response.data.email);
