@@ -3,7 +3,7 @@ import {Navbar, Nav, NavDropdown, FormControl} from 'react-bootstrap';
 import logo from '../logo.svg';
 
 class NavigationBar extends React.Component {
-    handleAuth = (menu) => {
+    handleAuth = menu => {
         if (menu === "Keluar") {
             localStorage.removeItem("loginKah");
             this.props.history.push("/");
@@ -21,16 +21,14 @@ class NavigationBar extends React.Component {
         const kategori = ["Olahraga", "Hiburan", "Bisnis"];
         const kategoriMenu = kategori.map(kategori => {
             return (
-                <Nav.Link onClick={() => this.props.handleRouter(kategori)}>
-                    {kategori}
-                </Nav.Link>
+                <Nav.Link onClick={() => this.props.handleKategori(kategori)}>{kategori}</Nav.Link>
             );
         });
         
         const lainnya = ["Sains", "Teknologi", "Kesehatan"];
         const lainnyaDropdown = lainnya.map((kategoriLainnya) => {
             return (
-                <NavDropdown.Item onClick={() => this.props.handleRouter(kategoriLainnya)}>
+                <NavDropdown.Item onClick={() => this.props.handleKategori(kategoriLainnya)}>
                     {kategoriLainnya}
                 </NavDropdown.Item>
             );
@@ -53,7 +51,10 @@ class NavigationBar extends React.Component {
                         </NavDropdown>
                     </Nav>
                     <Nav className="mx-auto">
-                        <FormControl name="keyword" type="search" placeholder="Ketik untuk mencari" onChange={keyword => this.props.handleSearch(keyword)}/>
+                        <FormControl disabled={this.props.disableSearch}
+                            placeholder="Ketik untuk mencari"
+                            onChange={keyword => this.props.handleSearch(keyword)}
+                            name="keyword" type="search" />
                     </Nav>
                     <Nav className="mx-auto">
                         {authMenu}

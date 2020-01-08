@@ -1,7 +1,7 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
 import {connect} from "unistore/react";
-import {actions, store} from "../store";
+import {actions} from "../store";
 import axios from "axios";
 import {Container, Row, Form, Button} from 'react-bootstrap';
 import NavigationBar from "../components/navbar";
@@ -17,11 +17,6 @@ class Masuk extends React.Component {
             : namaKategori === "Teknologi" ? kategori="technology"
             : kategori="health"
         await this.props.history.push("/" + kategori);
-    };
-
-    handleRouterSearch = keywordObject => {
-        store.setState({ [keywordObject.target.name]: keywordObject.target.value });
-        this.props.history.push("/");
     };
 
     login = () => {
@@ -46,7 +41,9 @@ class Masuk extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <NavigationBar {...this.props} handleRouter={event => this.handleRouterKategori(event)}/>
+                <NavigationBar {...this.props}
+                    handleKategori={event => this.handleRouterKategori(event)}
+                    disableSearch={true}/>
                 <Container fluid={true}>
                     <Container className="mt-5">
                         <Row>

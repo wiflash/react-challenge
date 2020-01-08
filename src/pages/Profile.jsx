@@ -1,29 +1,14 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
 import {connect} from "unistore/react";
-import {actions, store} from "../store";
-import { Redirect } from "react-router-dom";
+import {actions} from "../store";
+import {Redirect} from "react-router-dom";
 import {Container, Form, Row, Col, ListGroup} from 'react-bootstrap';
 import NavigationBar from "../components/navbar";
+import Masuk from "./Masuk";
 
 
-class Profile extends React.Component {
-    handleRouterKategori = async namaKategori => {
-        let kategori;
-        namaKategori === "Olahraga" ? kategori="sports"
-            : namaKategori === "Hiburan" ? kategori="entertainment"
-            : namaKategori === "Bisnis" ? kategori="business"
-            : namaKategori === "Sains" ? kategori="science"
-            : namaKategori === "Teknologi" ? kategori="technology"
-            : kategori="health"
-        await this.props.history.push("/" + kategori);
-    };
-
-    handleRouterSearch = keywordObject => {
-        store.setState({ [keywordObject.target.name]: keywordObject.target.value });
-        this.props.history.push("/");
-    };
-
+class Profile extends Masuk {
     render() {
         const email = localStorage.getItem("email");
         const fullname = localStorage.getItem("fullname");
@@ -33,7 +18,9 @@ class Profile extends React.Component {
         } else {
             return (
                 <React.Fragment>
-                    <NavigationBar {...this.props} handleRouter={event => this.handleRouterKategori(event)}/>
+                    <NavigationBar {...this.props}
+                        handleKategori={event => this.handleRouterKategori(event)}
+                        disableSearch={true}/>
                     <Container fluid={true}>
                         <Container className="mt-5">
                             <Row>

@@ -1,6 +1,9 @@
 import React from "react";
-import {ListGroup, Row, Col} from 'react-bootstrap';
 import axios from "axios";
+import {withRouter, Link} from "react-router-dom";
+import {connect} from "unistore/react";
+import {actions, store} from "../store";
+import {ListGroup, Row, Col} from 'react-bootstrap';
 import SideBarBody from "./sideBarBody";
 
 
@@ -8,28 +11,22 @@ const apiKey = "06efa54746344387aaed942eac41da02";
 const baseUrl = "https://newsapi.org/v2/";
 
 class ShowSideBarBody extends React.Component {
-    state = {
-        listNews: [],
-        isLoading: true
-    };
-
     componentDidMount = () => {
+        store.setState({sideLoadingKah: true});
         axios.get(baseUrl + `top-headlines?country=id&category=general&apiKey=` + apiKey + "&page=1&pageSize=5")
             .then((response) => {
-                this.setState({
-                    listNews: response.data.articles,
-                    isLoading: false
+                store.setState({
+                    sideListNews: response.data.articles,
+                    sideLoadingKah: false
                 })
             })
             .catch((error) => {
-                this.setState({
-                    isLoading: true
-                })
+                store.setState({sideLoadingKah: true})
             });
     };
 
     render() {
-        const validHeadlines = this.state.listNews.filter((item) => {
+        const validHeadlines = this.props.sideListNews.filter((item) => {
             if (item.content !== null && item.image !== null) {
                 return item;
             }
@@ -46,18 +43,6 @@ class ShowSideBarBody extends React.Component {
             );
         });
         
-        const isLoadingCheck = () => {
-            if(this.state.isLoading === true) {
-                return (
-                <ListGroup.Item>
-                    <p>Loading...</p>
-                </ListGroup.Item>
-                );
-            } else {
-                return headlineNews;
-            }
-        };
-        
         return (
             <ListGroup className="mb-4">
                 <ListGroup.Item>
@@ -66,15 +51,15 @@ class ShowSideBarBody extends React.Component {
                             <span className="text-primary font-weight-bold">BERITA TERKINI</span>
                         </Col>
                         <Col md="6" className="text-right">
-                            <a href="/">lihat semua</a>
+                            <Link to="/">lihat semua</Link>
                         </Col>
                     </Row>
                 </ListGroup.Item>
-                {isLoadingCheck()}
+                {this.props.sideLoadingKah ? <ListGroup.Item>Loading...</ListGroup.Item> : headlineNews}
             </ListGroup>
         );
     }
 }
 
 
-export default ShowSideBarBody;
+export default connect("keyword, sideListNews, sideLoadingKah", actions)(withRouter(ShowSideBarBody));

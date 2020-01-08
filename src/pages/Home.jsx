@@ -1,8 +1,8 @@
 import React from "react";
+import axios from "axios";
 import {withRouter} from "react-router-dom";
 import {connect} from "unistore/react";
 import {actions, store} from "../store";
-import axios from "axios";
 import {Container, Row, Col} from 'react-bootstrap';
 import NewsBody from "../components/newsBody";
 import NavigationBar from "../components/navbar";
@@ -71,8 +71,10 @@ class Home extends React.Component {
 
         return (
             <div>
-                <NavigationBar {...this.props} handleRouter={event => this.handleRouterKategori(event)}
-                    handleSearch={event => this.handleRouterSearch(event)}/>
+                <NavigationBar {...this.props}
+                    handleKategori={event => this.handleRouterKategori(event)}
+                    handleSearch={event => this.handleRouterSearch(event)}
+                    disableSearch={false}/>
                 <Container fluid={true}>
                     <Container className="mt-5">
                         <Row>
@@ -89,5 +91,4 @@ class Home extends React.Component {
 }
 
 
-// export default Home;
 export default connect("keyword, listNews, loadingKah", actions)(withRouter(Home));

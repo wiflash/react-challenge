@@ -8,8 +8,10 @@ const initialState = {
     fullname: "",
     loginKah: false,
     listNews: [],
+    sideListNews: [],
     keyword: "",
-    loadingKah: true
+    loadingKah: true,
+    sideLoadingKah: true
 };
 
 export const store = createStore(initialState);
