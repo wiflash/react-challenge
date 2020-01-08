@@ -33,8 +33,7 @@ class Profile extends React.Component {
         } else {
             return (
                 <React.Fragment>
-                    <NavigationBar {...this.props} handleRouter={event => this.handleRouterKategori(event)}
-                        handleSearch={event => this.handleRouterSearch(event)}/>
+                    <NavigationBar {...this.props} handleRouter={event => this.handleRouterKategori(event)}/>
                     <Container fluid={true}>
                         <Container className="mt-5">
                             <Row>
