@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import {withRouter, Link} from "react-router-dom";
 import {connect} from "unistore/react";
 import {actions, store} from "../store";
@@ -7,22 +6,10 @@ import {ListGroup, Row, Col} from 'react-bootstrap';
 import SideBarBody from "./sideBarBody";
 
 
-const apiKey = "06efa54746344387aaed942eac41da02";
-const baseUrl = "https://newsapi.org/v2/";
-
 class ShowSideBarBody extends React.Component {
     componentDidMount = () => {
         store.setState({sideLoadingKah: true});
-        axios.get(baseUrl + `top-headlines?country=id&category=general&apiKey=` + apiKey + "&page=1&pageSize=5")
-            .then((response) => {
-                store.setState({
-                    sideListNews: response.data.articles,
-                    sideLoadingKah: false
-                })
-            })
-            .catch((error) => {
-                store.setState({sideLoadingKah: true})
-            });
+        this.props.getSideNews();
     };
 
     render() {

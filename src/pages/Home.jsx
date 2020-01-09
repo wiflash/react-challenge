@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+// import axios from "axios";
 import {withRouter} from "react-router-dom";
 import {connect} from "unistore/react";
 import {actions, store} from "../store";
@@ -8,24 +8,13 @@ import NewsBody from "../components/newsBody";
 import NavigationBar from "../components/navbar";
 import ShowSideBarBody from "../components/showSideBar";
 
-const apiKey = "06efa54746344387aaed942eac41da02";
-const baseUrl = "https://newsapi.org/v2/";
 
 class Home extends React.Component {
     requestNews = async () => {
         let kategori = this.props.match.params.kategori;
         if (kategori === undefined) {kategori="general"}
         store.setState({loadingKah: true});
-        axios.get(baseUrl + `top-headlines?country=id&category=${kategori}&q=${this.props.keyword}&apiKey=` + apiKey)
-            .then((response) => {
-                store.setState({
-                    listNews: response.data.articles,
-                    loadingKah: false
-                })
-            })
-            .catch((error) => {
-                store.setState({loadingKah: true})
-            });
+        this.props.getNews(kategori);
     }
 
     componentDidMount = () => {
