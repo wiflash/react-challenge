@@ -1,8 +1,8 @@
 import React from "react";
+import axios from "axios";
 import {withRouter} from "react-router-dom";
 import {connect} from "unistore/react";
 import {actions} from "../store";
-import axios from "axios";
 import {Container, Row, Form, Button} from 'react-bootstrap';
 import NavigationBar from "../components/navbar";
 
